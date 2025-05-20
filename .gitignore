@@ -1,14 +1,14 @@
 HELP.md
-bpo_2/target/
-!bpo_2/.mvn/wrapper/maven-wrapper.jar
-!bpo_2/**/src/main/**/target/
-!bpo_2/**/src/test/**/target/
+bpo/target/
+!bpo/.mvn/wrapper/maven-wrapper.jar
+!bpo/**/src/main/**/target/
+!bpo/**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-bpo_2/.idea
-bpo_2/*.iws
-bpo_2/*.iml
-bpo_2/*.ipr
+bpo/.idea
+bpo/*.iws
+bpo/*.iml
+bpo/*.ipr
 
 .vscode/
 
