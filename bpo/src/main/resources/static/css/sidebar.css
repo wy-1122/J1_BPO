@@ -1,0 +1,40 @@
+#sidebar {
+  margin: 0px 10px;
+  width: 20%;
+  border-radius: 3px;
+  min-height: 624px;
+  box-shadow: 0 0 5px 1px #efebeb;
+  border-top: 4px solid #2093ff;
+}
+#sidebar a {
+  color: #48576a;
+}
+#sidebar ul {
+  padding-left: 0;
+  width: 100%;
+  list-style: none;
+}
+#sidebar ul li {
+  height: 35px;
+  line-height: 35px;
+  margin: 2px 0;
+  border: 0;
+  text-indent: 24px;
+}
+#sidebar ul .ItemTitle h5 {
+  text-indent: 16px;
+  height: 41px;
+  line-height: 41px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 16px;
+}
+#sidebar ul .SideBarItem {
+  border-left: 4px solid transparent;
+  margin-top: 9px;
+}
+#sidebar ul .SideBarItemSelected {
+  border-left: 4px solid #1890ff;
+}
+#sidebar ul .SideBarItemSelected a {
+  color: #2093ff;
+}

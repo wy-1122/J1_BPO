@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/css/pay.css}">
+    <script th:src="@{/static/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+    <title>支付页面</title>
+</head>
+
+<body>
+    <div th:replace="pages/front/component/nav::navbar(userRoleId=${session.userRoleId})"></div>
+    <div class = "OrderTitle"><p>订单页面</p></div>
+    <div class="container" id = "Container">
+        <div id = "Order">
+            <div class = "ProjectTitle"><p>项目名称: <span th:text="${order.projectName}">服务外包前端编写</span></p></div>
+            <div class="Info">
+                <div class = "TableDiv">
+                    <table class = "table InfoTable">
+                        <caption>发布方信息</caption>
+                        <tr>
+                            <td class = "PropertyName">发布方ID:</td><td th:text="${order.userEmployerId}">201806062407</td>
+                            <td class = "PropertyName">发布方联系人:</td><td th:text="${order.connectName}">jmh</td>
+                        </tr>
+                        <tr>
+                            <td class = "PropertyName">电话:</td><td th:text="${order.connectTel}">4008823823</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class = "TableDiv">
+                    <table class = "table InfoTable">
+                        <caption>承包方方信息</caption>
+                        <tr>
+                            <td class = "PropertyName">承包方ID:</td><td th:text="${order.userEmployeeId}">201806062405</td>
+                            <td class = "PropertyName">承包方联系人:</td><td th:text="${order.userEmployeeName}">hzw</td>
+                        </tr>
+                        <tr>
+                            <td class = "PropertyName">电话:</td><td th:text="${order.userEmployeeTel}">15487465241</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class = "TableDiv">
+                    <table class = "table InfoTable">
+                        <caption>订单信息</caption>
+                        <tr>
+                            <td class = "PropertyName">订单ID:</td><td th:text="${order.orderId}">00001</td>
+                            <td class = "PropertyName">项目ID:</td><td th:text="${order.projectId}">00001</td>
+                            <td class = "PropertyName">订单金额:</td><td>￥<span th:text="${order.orderAmount}">10000</span></td>
+                        </tr>
+                        <tr>
+                            <td class = "PropertyName">承包方定金:</td><td>￥<span th:text="${order.employeeDeposit}">1000</span></td>
+                            <td class = "PropertyName">发布方定金:</td><td>￥<span th:text="${order.employerDeposit}">1000</span></td>
+                            <td class = "PropertyName">生成时间:</td><td th:text="${#dates.format(order.orderStartTime,'yyyy-MM-dd HH:mm:ss')}">2020-12-26</td>
+                        </tr>
+                        <tr>
+                            <td class = "PropertyName">工期:</td><td><span th:text="${order.schedule}">7</span>天</td>
+                        </tr>
+                    </table>
+                </div>
+                <p style="font-size: 20px;" th:if="${PayType == 'Deposit'}">需付款：￥<span style="font-weight: 700;" th:text="${session.userRoleId == 1?order.employerDeposit:order.employeeDeposit}">1000</span></p>
+                <p style="font-size: 20px;" th:if="${PayType == 'AccountDue'}">需付款：￥<span style="font-weight: 700;" th:text="${order.orderAmount - order.employerDeposit}">1000</span></p>
+            </div>
+            <div>
+                <form th:action="@{/Money/UserPayDeposit}" th:if="${PayType == 'Deposit'}">
+                    <input type="hidden" name = "orderId" th:value="${order.orderId}">
+                    <input type="submit" class = "btn Confirm" value="确认订单并缴纳定金"/>
+                </form>
+                <form th:action="@{/Money/EmployerPayAccountDue}" th:if="${PayType == 'AccountDue'}">
+                    <input type="hidden" name = "orderId" th:value="${order.orderId}">
+                    <input type="submit" class = "btn Confirm" value="确认订单并缴纳尾款"/>
+                </form>
+                <p>点击保存或发布按钮，表示您已确认并同意<a href="#">《开源众包平台订单签订协议及规则》</a></p>
+            </div>
+        </div>
+        <div th:replace="pages/front/component/advert::advert"></div>
+    </div>
+    <div th:replace="pages/front/component/footer::footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scu.bpo.dao.MoneyNotificationDao">
+  <resultMap id="BaseResultMap" type="com.scu.bpo.pojo.entity.MoneyNotification">
+    <id column="Money_ID" jdbcType="INTEGER" property="moneyId" />
+    <result column="Order_ID" jdbcType="INTEGER" property="orderId" />
+    <result column="Order_Admin_ID" jdbcType="INTEGER" property="orderAdminId" />
+    <result column="Money_Time" jdbcType="TIMESTAMP" property="moneyTime" />
+    <result column="Amount" jdbcType="REAL" property="amount" />
+    <result column="Money_Type" jdbcType="VARCHAR" property="moneyType" />
+    <result column="User_ID" jdbcType="INTEGER" property="userId" />
+    <result column="Money_Description" jdbcType="VARCHAR" property="moneyDescription" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Money_ID, Order_ID, Order_Admin_ID, Money_Time, Amount, Money_Type, User_ID, Money_Description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from money_notification
+    where Money_ID = #{moneyId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from money_notification
+    where Money_ID = #{moneyId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Money_ID" keyProperty="moneyId" parameterType="com.scu.bpo.pojo.entity.MoneyNotification" useGeneratedKeys="true">
+    insert into money_notification (Order_ID, Order_Admin_ID, Money_Time, 
+      Amount, Money_Type, User_ID, 
+      Money_Description)
+    values (#{orderId,jdbcType=INTEGER}, #{orderAdminId,jdbcType=INTEGER}, #{moneyTime,jdbcType=TIMESTAMP}, 
+      #{amount,jdbcType=REAL}, #{moneyType,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{moneyDescription,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Money_ID" keyProperty="moneyId" parameterType="com.scu.bpo.pojo.entity.MoneyNotification" useGeneratedKeys="true">
+    insert into money_notification
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        Order_ID,
+      </if>
+      <if test="orderAdminId != null">
+        Order_Admin_ID,
+      </if>
+      <if test="moneyTime != null">
+        Money_Time,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="moneyType != null">
+        Money_Type,
+      </if>
+      <if test="userId != null">
+        User_ID,
+      </if>
+      <if test="moneyDescription != null">
+        Money_Description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderAdminId != null">
+        #{orderAdminId,jdbcType=INTEGER},
+      </if>
+      <if test="moneyTime != null">
+        #{moneyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=REAL},
+      </if>
+      <if test="moneyType != null">
+        #{moneyType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="moneyDescription != null">
+        #{moneyDescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scu.bpo.pojo.entity.MoneyNotification">
+    update money_notification
+    <set>
+      <if test="orderId != null">
+        Order_ID = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderAdminId != null">
+        Order_Admin_ID = #{orderAdminId,jdbcType=INTEGER},
+      </if>
+      <if test="moneyTime != null">
+        Money_Time = #{moneyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="amount != null">
+        Amount = #{amount,jdbcType=REAL},
+      </if>
+      <if test="moneyType != null">
+        Money_Type = #{moneyType,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        User_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="moneyDescription != null">
+        Money_Description = #{moneyDescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Money_ID = #{moneyId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.MoneyNotification">
+    update money_notification
+    set Order_ID = #{orderId,jdbcType=INTEGER},
+      Order_Admin_ID = #{orderAdminId,jdbcType=INTEGER},
+      Money_Time = #{moneyTime,jdbcType=TIMESTAMP},
+      Amount = #{amount,jdbcType=REAL},
+      Money_Type = #{moneyType,jdbcType=VARCHAR},
+      User_ID = #{userId,jdbcType=INTEGER},
+      Money_Description = #{moneyDescription,jdbcType=VARCHAR}
+    where Money_ID = #{moneyId,jdbcType=INTEGER}
+  </update>
+</mapper>

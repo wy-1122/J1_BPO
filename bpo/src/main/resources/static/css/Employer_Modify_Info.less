@@ -1,0 +1,141 @@
+@import "nav";
+@import "sidebar";
+@import "footer";
+
+#body {
+    background: #fefefe;
+    padding-bottom: 350px;
+    position: relative;
+    height: 100%;
+    min-height: 100vh;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+#detail {
+    margin: 0px 10px;
+    width: 80%;
+    background: #fff;
+    box-shadow: 0 0 5px 1px #efebeb;
+    border-radius: 3px;
+
+    .DetailHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #efefef;
+
+        .title {
+            height: 45px;
+            line-height: 45px;
+            padding: 0 0 0 16px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .Modify {
+            display: flex;
+            cursor: pointer;
+
+            .icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            span {
+                margin: 0px 20px 0px 8px;
+                line-height: 25px;
+                display: flex;
+            }
+        }
+    }
+
+    .content {
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        [type=email],
+        [type=month],
+        [type=number],
+        [type=password],
+        [type=search],
+        [type=tel],
+        [type=text],
+        [type=time],
+        textarea {
+            display: block;
+            width: 100%;
+            margin: 0;
+            box-shadow: none;
+            font-family: inherit;
+            font-weight: 400;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #bfcbd9;
+            font-size: inherit;
+            height: 36px;
+            line-height: 1;
+            outline: 0;
+            padding: 3px 10px;
+        }
+
+        form{
+            width: 80%;
+        }
+
+        .DetailTable {
+            border: 0;
+            width: 100%;
+            margin: 0;
+            tbody{
+                width: 100%;
+            }
+            
+            td {
+                border: 1px solid transparent;
+                word-break: break-all;
+                word-wrap: break-word;
+                white-space: inherit;
+            }
+
+            .TableItemName {
+                width: 20%;
+                text-align: right;
+
+                p {
+                    line-height: 34px;
+                    margin: 0;
+                }
+            }
+            .SelectSex {
+                .SexLabel {
+                    margin-right: 15px;
+                    span {
+                        margin-left: 5px;
+                        margin-right: 15px;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            clip-path: circle();
+        }
+    }
+
+    .ModifyButton{
+        width: 80px;
+        position: relative;
+        left: 50%;
+        margin-left: -40px;
+        margin-bottom: 30px;
+    }
+}

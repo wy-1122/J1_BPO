@@ -1,0 +1,223 @@
+#myBar {
+  border-radius: 0px;
+}
+#myBar ul {
+  list-style: none;
+  padding-inline-start: 0px;
+  margin: 0;
+}
+#myBar a {
+  text-decoration: none;
+}
+#myBar .nav-title {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+}
+#myBar .nav-list a {
+  font-size: 16px;
+  color: white;
+}
+@media (min-width: 768px) {
+  #myBar .nav-list {
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+}
+#myBar .nav-list li {
+  display: flex;
+  margin: 0px 6px;
+}
+#myBar .nav-list .icon {
+  width: 32px;
+  height: 20px;
+}
+#myBar .nav-list-left {
+  margin-left: 40px;
+}
+#myBar .nav-list-right {
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  #myBar .nav-list-right {
+    float: right;
+    margin: 0px;
+  }
+}
+#myBar .nav-list-right .Message {
+  position: relative;
+  width: 30px;
+  animation: HaveMessage 1.5s infinite;
+}
+#myBar .nav-list-right .Message sup {
+  position: absolute;
+  top: 0px;
+  left: 22px;
+  background-color: #ff3b30;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 6px;
+  text-align: center;
+  white-space: nowrap;
+}
+@keyframes HaveMessage {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+#myBar .btn-group a {
+  color: black;
+}
+#myBar .btn-group .RoleMenu {
+  right: 0px;
+  left: unset;
+  padding: 0px;
+}
+#myBar .btn-group .RoleMenu .SelectedRole {
+  border-left: 4px solid #1890ff;
+  margin: 0;
+}
+#myBar .avatar {
+  position: absolute;
+  top: -10px;
+  width: 40px;
+  height: 40px;
+  clip-path: circle();
+}
+body {
+  background: #fefefe;
+  padding-bottom: 350px;
+  position: relative;
+  height: 100%;
+  min-height: 100vh;
+}
+#footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background-color: black;
+  height: 240px;
+  text-align: center;
+  padding-top: 20px;
+}
+#footer p {
+  color: white;
+}
+#footer .FooterBottom {
+  border-top: 1px solid #4c4c53;
+  position: relative;
+  background-color: black;
+}
+#footer .FooterBottom p {
+  margin: 0px;
+  line-height: 30px;
+}
+#sidebar {
+  margin: 0px 10px;
+  width: 20%;
+  border-radius: 3px;
+  min-height: 624px;
+  box-shadow: 0 0 5px 1px #efebeb;
+  border-top: 4px solid #2093ff;
+}
+#sidebar a {
+  color: #48576a;
+}
+#sidebar ul {
+  padding-left: 0;
+  width: 100%;
+  list-style: none;
+}
+#sidebar ul li {
+  height: 35px;
+  line-height: 35px;
+  margin: 2px 0;
+  border: 0;
+  text-indent: 24px;
+}
+#sidebar ul .ItemTitle h5 {
+  text-indent: 16px;
+  height: 41px;
+  line-height: 41px;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 16px;
+}
+#sidebar ul .SideBarItem {
+  border-left: 4px solid transparent;
+  margin-top: 9px;
+}
+#sidebar ul .SideBarItemSelected {
+  border-left: 4px solid #1890ff;
+}
+#sidebar ul .SideBarItemSelected a {
+  color: #2093ff;
+}
+#detail {
+  margin: 0px 10px;
+  width: 80%;
+  background: #fff;
+  box-shadow: 0 0 5px 1px #efebeb;
+  border-radius: 3px;
+}
+#detail .DetailHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 20px;
+  border-bottom: 1px solid #efefef;
+}
+#detail .DetailHeader .title {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 5px;
+  margin: 0 10px;
+  font-size: 16px;
+}
+#detail .content {
+  padding: 30px;
+}
+#detail .content .SchemeItem {
+  position: relative;
+  padding: 20px 20px 10px;
+  display: flex;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+#detail .content .SchemeItem .SchemeItemIcon {
+  width: 125px;
+  text-align: center;
+}
+#detail .content .SchemeItem .SchemeItemIcon .SchemeItemIconAvatar img {
+  width: 100px;
+  height: 100px;
+}
+#detail .content .SchemeItem .SchemeItemPerson {
+  width: 100%;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#detail .content .SchemeItem .SchemeItemPerson .PersonName {
+  font-weight: 700;
+  font-size: 15px;
+  color: #151519;
+}
+#detail .content .SchemeItem .SchemeItemPerson .EvaluationDetail {
+  word-break: break-all;
+}

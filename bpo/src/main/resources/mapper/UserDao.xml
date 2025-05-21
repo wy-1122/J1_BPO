@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scu.bpo.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.scu.bpo.pojo.entity.User">
+    <id column="User_ID" jdbcType="INTEGER" property="userId" />
+    <result column="User_Name" jdbcType="VARCHAR" property="userName" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="Money" jdbcType="REAL" property="money" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    User_ID, User_Name, `Password`, Money
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from User
+    where User_ID = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from User
+    where User_ID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="User_ID" keyProperty="userId" parameterType="com.scu.bpo.pojo.entity.User" useGeneratedKeys="true">
+    insert into User (User_Name, `Password`, Money
+      )
+    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{money,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="User_ID" keyProperty="userId" parameterType="com.scu.bpo.pojo.entity.User" useGeneratedKeys="true">
+    insert into User
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        User_Name,
+      </if>
+      <if test="password != null">
+        `Password`,
+      </if>
+      <if test="money != null">
+        Money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scu.bpo.pojo.entity.User">
+    update User
+    <set>
+      <if test="userName != null">
+        User_Name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `Password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        Money = #{money,jdbcType=REAL},
+      </if>
+    </set>
+    where User_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.User">
+    update User
+    set User_Name = #{userName,jdbcType=VARCHAR},
+      `Password` = #{password,jdbcType=VARCHAR},
+      Money = #{money,jdbcType=REAL}
+    where User_ID = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/css/EmployerEvaluation.css}">
+    <script th:src="@{/static/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+    <title>我的评价</title>
+</head>
+
+<body>
+    <div th:replace="pages/front/component/nav::navbar(userRoleId=${session.userRoleId})"></div>
+    <div class="container" style="display: flex;">
+        <div th:replace="pages/front/component/EmployeeDeskSideBar.html::DeskSideBar(Content='评价')"></div>
+        <div id = "detail">
+            <div class = "DetailHeader">
+                <div class="title">我的评价</div>
+            </div>
+            <div class="content">
+                <div class = "SchemeItem" th:each="Item:${Evaluations}">
+                    <div class="SchemeItemIcon">
+                        <div class="SchemeItemIconAvatar">
+                            <a href="#">
+                                <img th:src="@{/static/images/avatar_default.gif}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="SchemeItemPerson">
+                        <p class = "PersonName" th:text="${Item.projectName}">服务外包网站编写</p>
+                        <p class = "EvaluationDetail" th:text="${Item.evaluationDetails}">123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789</p>
+                        <p>
+                            生成时间: <span th:text="${#dates.format(Item.evaluationTime,'yyyy-MM-dd HH:mm:ss')}">2020-11-13 11:18</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="pages/front/component/footer::footer"></div>
+</body>
+
+</html>

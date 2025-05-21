@@ -1,0 +1,116 @@
+#myBar {
+    border-radius: 0px;
+
+    ul {
+        list-style: none;
+        padding-inline-start: 0px;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    // 开源众包大标题
+    .nav-title {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-weight: 500;
+        font-size: 20px;
+        color: white;
+    }
+
+    // 导航栏
+    .nav-list {
+        a {
+            font-size: 16px;
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        li {
+            display: flex;
+            margin: 0px 6px;
+        }
+
+        .icon {
+            width: 32px;
+            height: 20px;
+        }
+    }
+
+    // 左侧的导航栏
+    .nav-list-left {
+        margin-left: 40px;
+    }
+
+    // 右侧的导航栏
+    .nav-list-right {
+        @media (min-width: 768px) {
+            float: right;
+            margin: 0px;
+        }
+
+        margin-left: 40px;
+        margin-bottom: 20px;
+
+        .Message{
+            position: relative;
+            width: 30px;
+            sup{
+                position: absolute;
+                top:0px;
+                left:22px;
+                background-color: #ff3b30;
+                border-radius: 10px;
+                color: #fff;
+                display: inline-block;
+                font-size: 12px;
+                height: 18px;
+                line-height: 18px;
+                padding: 0 6px;
+                text-align: center;
+                white-space: nowrap;
+            }
+            animation: HaveMessage 1.5s infinite;
+            @keyframes HaveMessage
+            {
+                0% {transform: translateY(0px);}
+                50% {transform: translateY(10px);}
+                100% {transform: translateY(0px);}
+            }
+        }
+    }
+
+    // 头像框对应的下拉菜单
+    .btn-group {
+        a {
+            color: black;
+        }
+
+        .RoleMenu {
+            right: 0px;
+            left: unset;
+            padding: 0px;
+            .SelectedRole{
+                border-left: 4px solid #1890ff;
+                margin: 0;
+            }
+        }
+    }
+
+    // 头像框
+    .avatar {
+        position: absolute;
+        top: -10px;
+        width: 40px;
+        height: 40px;
+        clip-path: circle();
+    }
+}

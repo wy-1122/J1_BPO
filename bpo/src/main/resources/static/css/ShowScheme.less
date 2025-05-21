@@ -1,0 +1,95 @@
+@import "nav";
+@import "footer";
+
+#body {
+    background-color: rgb(249, 250, 253);
+
+    ul {
+        list-style: none;
+        padding-inline-start: 0px;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    #Content {
+        display: flex;
+    }
+
+    #main {
+        width: 850px;
+        background-color: white;
+        // border: 1px black solid;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        padding: 15px;
+    }
+
+    #advert {
+        width: 320px;
+        margin-left: 30px;
+        .AdvertDiv {
+            width: 100%;
+            margin-bottom: 20px;
+    
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .AreaTitle {
+        font-size: 16px;
+        font-weight: 700;
+        color: #151519;
+        line-height: 40px;}
+
+    .AreaDiv {
+        margin-bottom: 22px;
+        .Text{
+            word-break: break-all;
+            word-wrap: break-word;
+            white-space: inherit;
+            
+        }
+    }
+
+    #BudgetPeriod {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 15px;
+
+        #Period {
+            flex: 1;
+            font-size:16px;
+        }
+
+        #Budget {
+            font-size:16px;
+            flex: 1;
+        }
+    }
+
+    #SubmitButton {
+        margin-top: 40px;
+        .ReturnPage{
+            background-color: #969696;
+            border: 1px solid #969696;
+        }
+        button {
+            background-color: #1890ff;
+            border: 1px solid #1890ff;
+            color: #fff;
+        }
+        button:focus{
+            text-decoration: none;
+        }
+        p{
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+
+}

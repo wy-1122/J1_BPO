@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/Employer_Modify_Info.css">
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/Employer_Modify_Info.js"></script>
+    <title>Bootstrap</title>
+</head>
+
+<body id = "body">
+    <div th:replace="pages/front/component/nav::navbar(userRoleId=2)"></div>
+    <div class="container" style="display: flex;">
+        <div th:replace="pages/front/component/EmployeeSideBar::EmployeeSideBar"></div>
+        <div id = "detail">
+            <div class = "DetailHeader">
+                <div class="title">基本信息</div>
+                <a href="#">
+                    <div class="Modify">
+                        <svg t="1608716256256" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2792" width="200" height="200"><path d="M928.495 414.59c-12.608 0-22.833 10.204-22.91 22.791l0 406.491c0 25.312-20.522 45.814-45.809 45.814l-687.323 0c-25.287 0-45.814-20.501-45.814-45.814l0-663.152c0-25.319 20.527-45.814 45.814-45.814l442.686 0c12.634-0.027 22.884-10.276 22.884-22.906 0-12.658-10.252-22.909-22.884-22.909l-447.269 0c-48.076 0-87.044 38.969-87.044 87.051l0 672.313c0 48.079 38.969 87.044 87.044 87.044l696.487 0c48.08 0 87.051-38.965 87.051-87.044l0-411.074c-0.078-12.589-10.297-22.79-22.911-22.79l0 0 0 0zM502.628 708.124l435.834-435.793c25.925-25.906 23.541-70.516-5.338-99.35l-41.165-41.21c-28.854-28.88-73.443-31.294-99.369-5.389l-435.834 435.884 145.871 145.857zM825.057 158.93c9.846-9.826 26.755-8.931 37.715 2.003l41.184 41.183c10.934 11.006 11.855 27.893 2.01 37.695l-48.365 48.365-80.275-81.521 47.73-47.725zM823.383 322.395l-324.038 324.082-80.931-80.908 324.695-324.697 80.275 81.521zM356.544 563.087l-44.802 164.172c-1.957 7.174 0.092 14.779 5.287 20.07 5.268 5.191 12.892 7.225 20.051 5.292l164.178-44.778-33.607-33.665-106.598 29.132 29.071-106.665-33.581-33.559zM356.544 563.087z" p-id="2793" fill="#8a8a8a"></path></svg>
+                        <span>编辑</span>
+                    </div>
+                </a>
+            </div>
+            <div class="content">
+                <form>
+                <table class = "table DetailTable">
+                        <tbody>
+                            <tr><td class = "TableItemName"><p>昵称：</p></td><td><input type="text" autocomplete="off" placeholder="请输入昵称" maxlength="10" minlength="3"></td></tr>
+                            <tr><td class = "TableItemName"><p>性别：</p></td><td class = "SelectSex">
+                                <label class = "SexLabel"><input type="radio" name = "sex"><span>男</span></label>
+                                <label class = "SexLabel"><input type="radio" name = "sex"><span>女</span></label>
+                            </td></tr>
+                            <tr><td class = "TableItemName"><p>所在地：</p></td><td><input type="text" autocomplete="off" placeholder="请输入所在地" maxlength="10" minlength="3"></td></tr>
+                            <tr><td class = "TableItemName"><p>工作年限：</p></td><td><input type="text" autocomplete="off" placeholder="请输入工作年限" maxlength="10" minlength="3"></td></tr>
+                            <tr><td class = "TableItemName"><p>就职公司：</p></td><td><input type="text" autocomplete="off" placeholder="请输入您当前就职的公司名称全称或简称，例如：开源中国"></td></tr>
+                            <tr><td class = "TableItemName"><p>个人介绍：</p></td><td><textarea autocomplete="off" placeholder="认真介绍自己，是一种态度。这将有助于提升您的竞标成功率! 最多可输入 500 字" rows="6" maxlength="500" class="el-textarea__inner" style="min-height: 164px; height: 164px;"></textarea></td></tr>
+                            <tr><td class = "TableItemName"><p>QQ：</p></td><td><input type="text" autocomplete="off" placeholder="请输入您的QQ" maxlength="12"></td></tr>
+                            <tr><td class = "TableItemName"><p>微信：</p></td><td><input type="text" autocomplete="off" placeholder="请输入您的微信" maxlength="20" minlength="6"></td></tr>
+                        </tbody>
+                    </table>
+                </form>
+                <img src="./images/avatar_default.gif" class="avatar">
+            </div>
+            <input type="submit" class = "btn btn-primary ModifyButton" value = "修改">
+        </div>
+    </div>
+    <div th:replace="pages/front/component/footer::footer"></div>
+</body>

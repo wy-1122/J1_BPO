@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scu.bpo.dao.ProjectTypeDao">
+  <resultMap id="BaseResultMap" type="com.scu.bpo.pojo.entity.ProjectType">
+    <id column="Project_Type_ID" jdbcType="INTEGER" property="projectTypeId" />
+    <result column="Project_Type_Name" jdbcType="VARCHAR" property="projectTypeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Project_Type_ID, Project_Type_Name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Project_Type
+    where Project_Type_ID = #{projectTypeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Project_Type
+    where Project_Type_ID = #{projectTypeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Project_Type_ID" keyProperty="projectTypeId" parameterType="com.scu.bpo.pojo.entity.ProjectType" useGeneratedKeys="true">
+    insert into Project_Type (Project_Type_Name)
+    values (#{projectTypeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="Project_Type_ID" keyProperty="projectTypeId" parameterType="com.scu.bpo.pojo.entity.ProjectType" useGeneratedKeys="true">
+    insert into Project_Type
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="projectTypeName != null">
+        Project_Type_Name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="projectTypeName != null">
+        #{projectTypeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scu.bpo.pojo.entity.ProjectType">
+    update Project_Type
+    <set>
+      <if test="projectTypeName != null">
+        Project_Type_Name = #{projectTypeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Project_Type_ID = #{projectTypeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.ProjectType">
+    update Project_Type
+    set Project_Type_Name = #{projectTypeName,jdbcType=VARCHAR}
+    where Project_Type_ID = #{projectTypeId,jdbcType=INTEGER}
+  </update>
+</mapper>

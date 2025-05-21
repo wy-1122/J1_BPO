@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/EmployerProject.css">
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/EmployerProject.js"></script>
+    <title>Bootstrap</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" id = "myBar">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#" class="nav-title">开源众包</a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                        <span class="sr-only">切换导航</span>
+                        <span class="icon-bar" style="background-color: rgb(0,0,0,0.3);"></span>
+                        <span class="icon-bar" style="background-color: rgb(0,0,0,0.3);"></span>
+                        <span class="icon-bar" style="background-color: rgb(0,0,0,0.3);"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                    <ul class="nav navbar-nav nav-list nav-list-left">
+                        <li><a href="#">任务大厅</a></li>
+                        <li><a href="#">最新活动</a></li>
+                        <li><a href="#">会员</a></li>
+                        <li><a href="#">帮助</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav nav-list nav-list-right">
+                        <li><a href="#">工作台</a></li>
+                        <li><a href="#">个人中心</a></li>
+                        <li><a href="#">
+                            <svg t="1608549759951" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1214" width="200" height="200">
+                                <path d="M547.970974 547.970657h182.660215c20.17793 0 36.530045 16.352115 36.530046 36.530045 0 20.167941-16.362104 36.530045-36.530046 36.530046H547.970974v182.660215c0 20.17793-16.352115 36.530045-36.530045 36.530045-20.167941 0-36.530045-16.352115-36.530046-36.530045V621.030748H292.250668c-20.17793 0-36.530045-16.352115-36.530045-36.530046s16.352115-36.530045 36.530045-36.530045h182.660215v-73.06009H328.780713c-20.167941 0-36.530045-16.352115-36.530045-36.530046 0-20.167941 16.352115-36.530045 36.530045-36.530045h94.476666l-88.183549-88.193538a36.536039 36.536039 0 0 1-9.969096-35.521149 36.550023 36.550023 0 0 1 26.091462-26.091462c12.776026-3.336351 26.351178 0.469486 35.521149 9.959107L511.43094 386.717028l124.723583-124.713594a36.549025 36.549025 0 0 1 35.531138-9.959107 36.533042 36.533042 0 0 1 26.091462 26.091462 36.508069 36.508069 0 0 1-9.959107 35.521149L599.634467 401.850476h94.466677c20.17793 0 36.530045 16.352115 36.530045 36.530045s-16.352115 36.530045-36.530045 36.530046H547.970974v73.06009z m-36.530045 474.910567c-282.461058 0-511.440612-228.979554-511.440612-511.440612s228.979554-511.440612 511.440612-511.440612 511.440612 228.979554 511.440612 511.440612-228.979554 511.440612-511.440612 511.440612z m0-73.07008c242.095208 0 438.380521-196.285313 438.380521-438.380521 0-242.085219-196.285313-438.380521-438.380521-438.380522-242.085219 0-438.380521 196.285313-438.380522 438.380522s196.285313 438.380521 438.380522 438.380521z m0 0" fill="#ffffff" p-id="1215"></path>
+                            </svg>
+                        </a></li>
+                        <li><a href="#" class = "Message">
+                            <svg t="1608550056986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2264" width="200" height="200"><path d="M903.018943 765.702891c-8.167498-35.732802-129.659023-148.035892-129.659023-199.082751V443.08674c0-99.030907-58.19342-185.810568-140.889332-227.668993 5.104686-13.272183 7.14656-26.544367 7.146561-40.837488v-54.109671C639.617149 54.109671 585.507478 0 519.14656 0S397.655035 54.109671 397.655035 120.470588v54.109671c0 14.293121 3.062812 28.586241 7.14656 40.837488-83.716849 41.858425-140.889332 128.638086-140.889332 227.668993v123.5334c0 51.046859-121.491525 163.34995-129.659023 199.082751-12.251246 51.046859 26.544367 96.989033 75.549352 96.989033h134.763709c7.14656 89.842473 81.674975 161.308076 173.559322 161.308076s166.412762-71.465603 173.559322-161.308076h134.763709c50.025922 0 88.821535-45.942173 76.570289-96.989033zM519.14656 962.743769c-52.067797 0-95.968096-34.711864-109.240279-82.695913h217.459621c-13.272183 47.984048-57.172483 82.695912-108.219342 82.695913z m-60.235294-842.273181c0-32.66999 26.544367-59.214357 59.214357-59.214357 32.66999 0 59.214357 26.544367 59.214357 59.214357v54.109671c0 3.062812 0 6.125623-1.020937 9.188435-19.397807-2.041874-38.795613-4.083749-59.214357-4.083749-19.397807 0-38.795613 1.020937-59.214357 4.083749 0-3.062812-1.020937-6.125623-1.020937-9.188435v-54.109671z m381.830509 674.839482c-2.041874 2.041874-6.125623 6.125623-13.272184 6.125623H209.802592c-7.14656 0-11.230309-4.083749-13.272183-6.125623-3.062812-3.062812-4.083749-7.14656-3.062812-12.251246 6.125623-10.209372 26.544367-34.711864 39.816551-51.04686 55.130608-68.402792 91.884347-116.386839 91.884347-164.370887V443.08674c0-107.198405 86.779661-193.978066 193.978065-193.978066s193.978066 86.779661 193.978066 193.978066v123.5334c0 49.004985 36.753739 96.989033 91.884347 164.370887 13.272183 16.334995 33.690927 40.837488 39.81655 51.046859-1.020937 5.104686-2.041874 9.188435-4.083748 13.272184z" fill="#ffffff" p-id="2265"></path></svg>
+                            <sup>100</sup>
+                        </a></li>
+                        <li>
+                            <div class="btn-group" style="padding: 15px 0px 15px 20px;">
+                                <a href="#" style="position: relative;" data-toggle="dropdown">
+                                    <div style="height: 20px; width: 32px;"></div>
+                                    <img src="./images/avatar_default.gif" class="avatar">
+                                </a>
+                                <ul class="dropdown-menu RoleMenu" role="menu">
+                                    <li><a href="#" style="width: 100%;">
+                                        <p>发布方</p>
+                                    </a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" style="width: 100%;">
+                                        <p>承包方</p>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="display: flex;">
+        <div id = "sidebar">
+            <ul class="SideBarList">
+                <li class="ItemTitle"><h5>我的项目</h5></li>
+                <li class="SideBarItem SideBarItemSelected"><a href="">项目</a></li>
+                <li class="SideBarItem"><a href="">我的评价</a></li>
+                <li class="SideBarItem"><a href="">我的账单</a></li>
+                <li class="SideBarItem"><a href="">我的订单</a></li>
+            </ul>
+        </div>
+        <div id = "detail">
+            <div class = "DetailHeader">
+                <div class="title">我的项目</div>
+            </div>
+            <div class="content">
+                <div class = "SchemeItem">
+                    <div class = "SchemeItemState">
+                        待审核
+                    </div>
+                    <div class="SchemeItemIcon">
+                        <div class="SchemeItemIconAvatar">
+                            <a href="#">
+                                <img src="./images/avatar_default.gif">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="SchemeItemPerson">
+                        <p class = "PersonName">服务外包网站编写</p>
+                        <p class = "SchemeTime">
+                            发布时间: <span>2020-11-13 11:18</span>
+                        </p>
+                    </div>
+                    <div class = "SchemeItemProject">
+                        <div class="SchemeItemBudgetTime">
+                            <div class = "ProjectInfo">
+                                <p>￥10000</p>
+                                <span>报价 ( 元 ) </span>
+                            </div>
+                            <div class = "ProjectInfo">
+                                <p>30</p>
+                                <span>工期 ( 天 ) </span>
+                            </div>
+                        </div>
+                        <button class="btn MoreInfo">查看详情</button>
+                    </div>
+                </div>
+                <div class = "SchemeItem">
+                    <div class = "SchemeItemState">
+                        竞标中
+                    </div>
+                    <div class="SchemeItemIcon">
+                        <div class="SchemeItemIconAvatar">
+                            <a href="#">
+                                <img src="./images/avatar_default.gif">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="SchemeItemPerson">
+                        <p class = "PersonName">服务外包网站编写</p>
+                        <p class = "SchemeTime">
+                            发布时间: <span>2020-11-13 11:18</span>
+                        </p>
+                    </div>
+                    <div class = "SchemeItemProject">
+                        <div class="SchemeItemBudgetTime">
+                            <div class = "ProjectInfo">
+                                <p>￥10000</p>
+                                <span>报价 ( 元 ) </span>
+                            </div>
+                            <div class = "ProjectInfo">
+                                <p>30</p>
+                                <span>工期 ( 天 ) </span>
+                            </div>
+                        </div>
+                        <button class="btn MoreInfo">查看详情</button>
+                    </div>
+                </div>
+                <div class = "SchemeItem">
+                    <div class = "SchemeItemState">
+                        实施中
+                    </div>
+                    <div class="SchemeItemIcon">
+                        <div class="SchemeItemIconAvatar">
+                            <a href="#">
+                                <img src="./images/avatar_default.gif">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="SchemeItemPerson">
+                        <p class = "PersonName">服务外包网站编写</p>
+                        <p class = "SchemeTime">
+                            发布时间: <span>2020-11-13 11:18</span>
+                        </p>
+                    </div>
+                    <div class = "SchemeItemProject">
+                        <div class="SchemeItemBudgetTime">
+                            <div class = "ProjectInfo">
+                                <p>￥10000</p>
+                                <span>报价 ( 元 ) </span>
+                            </div>
+                            <div class = "ProjectInfo">
+                                <p>30</p>
+                                <span>工期 ( 天 ) </span>
+                            </div>
+                        </div>
+                        <button class="btn MoreInfo">查看详情</button>
+                    </div>
+                </div>
+                <div class = "SchemeItem">
+                    <div class = "SchemeItemState">
+                        已完成
+                    </div>
+                    <div class="SchemeItemIcon">
+                        <div class="SchemeItemIconAvatar">
+                            <a href="#">
+                                <img src="./images/avatar_default.gif">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="SchemeItemPerson">
+                        <p class = "PersonName">服务外包网站编写</p>
+                        <p class = "SchemeTime">
+                            发布时间: <span>2020-11-13 11:18</span>
+                        </p>
+                    </div>
+                    <div class = "SchemeItemProject">
+                        <div class="SchemeItemBudgetTime">
+                            <div class = "ProjectInfo">
+                                <p>￥10000</p>
+                                <span>报价 ( 元 ) </span>
+                            </div>
+                            <div class = "ProjectInfo">
+                                <p>30</p>
+                                <span>工期 ( 天 ) </span>
+                            </div>
+                        </div>
+                        <button class="btn MoreInfo">查看详情</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <footer id="footer">
+        <p style="font-weight: 600; font-size: 18px;">服务与支持</p>
+        <p style="font-weight: 600; font-size: 24px;">400-8982-008</p>
+        <p>周一至周日 08:00-23:00</p>
+        <p>官方接包QQ群：<span style="font-weight: 600; font-size: 18px;">57693518</span></p>
+        <p>官方邮箱：<span style="font-weight: 600; font-size: 18px;">zbkf@oschina.cn</span></p>
+        <div class = "container FooterBottom">
+            <p style="float:left; font-size: 20px; font-weight: 600; margin-right: 30px;">开源众包</p>
+            <p style="float:left">让软件开发更加快捷、高效</p>
+            <p style="float:right">Copyright©2018 开源众包平台</p>
+        </div>
+    </footer>
+</body>
+
+</html>

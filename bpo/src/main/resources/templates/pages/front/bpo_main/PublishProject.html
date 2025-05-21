@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/static/css/PublishProject.css}">
+    <script th:src="@{/static/js/jquery-3.4.1.js}"></script>
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+    <script th:src="@{/static/js/PublishProject.js}"></script>
+    <title>发布项目</title>
+
+</head>
+
+<body id = "body">
+    <div th:replace="pages/front/component/nav::navbar(userRoleId=1)"></div>
+    <div class="container" id = "Content">
+        <div id = "main">
+            <form name="publishForm" id="publishForm" th:action="@{/pages/front/addNewProject}">
+                <div class="AreaDiv">
+                    <p class = "AreaTitle">*选择项目类型</p>
+                    <div id = "SelectType">
+                        <label><div class = "TypeDiv"><p>视频图像类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "1"></div></label>
+                        <label><div class = "TypeDiv"><p>虚拟现实类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "2"></div></label>
+                        <label><div class = "TypeDiv"><p>人工智能类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "3"></div></label>
+                        <label><div class = "TypeDiv"><p>电商应用类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "4"></div></label>
+                        <label><div class = "TypeDiv"><p>游戏娱乐类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "5"></div></label>
+                        <label><div class = "TypeDiv"><p>办公管理类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "6"></div></label>
+                        <label><div class = "TypeDiv"><p>金融交易类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "7"></div></label>
+                        <label><div class = "TypeDiv"><p>物联网应用类</p>  <input type="radio" class="TypeRadio" name="projectTypeId" value = "8"></div></label>
+                        <label><div class = "TypeDiv"><p>工具支持类</p>    <input type="radio" class="TypeRadio" name="projectTypeId" value = "9"></div></label>
+                        <label><div class = "TypeDiv"><p>底层研发类</p>     <input type="radio" class="TypeRadio" name="projectTypeId" value = "10"></div></label>
+                        <label><div class = "TypeDiv"><p>嵌入式开发类</p>   <input type="radio" class="TypeRadio" name="projectTypeId" value = "11"></div></label>
+                        <label><div class = "TypeDiv"><p>视图设计类</p>     <input type="radio" class="TypeRadio" name="projectTypeId" value = "12"></div></label>
+                        <label><div class = "TypeDiv"><p>其他项目类</p>     <input type="radio" class="TypeRadio" name="projectTypeId" value = "13"></div></label>
+                    </div>
+                </div>
+                <div class="AreaDiv">
+                    <p class = "AreaTitle">*需支持/适配的客户端（支持多选）</p>
+                    <div class = "ClientSupport">
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "1"><p>网站</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "2"><p>桌面软件</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "3"><p>小程序</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "4"><p>微信公众号</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "5"><p>H5页面</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "6"><p>IOS</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "7"><p>安卓</p></div></label>
+                        <label><div class = "ClientSupportDiv"><input type="checkbox" name = "equipmentId" value = "8"><p>其他形式</p></div></label>
+                    </div>
+                </div>
+                <div class="AreaDiv">
+                    <p class = "AreaTitle">*项目名称</p>
+                    <input type="text" autocomplete="off" placeholder="请输入需求标题，如美食类电商网站开发、APP开发" maxlength="40" class="ProjectName" name="projectName">
+                </div>
+                <div class="AreaDiv">
+                    <p class = "AreaTitle">*需求描述</p>
+                    <textarea name = "projectRequirement" class="form-control" rows="10" autocomplete="off" placeholder="请说明项目背景、项目目标、需要开发的功能任务。或者描述想开发的软件系统产品的业务使用场景、业务流程和功能以及可参照的软件系统或产品。并简要描述对承接的技术经验等竞标要求"></textarea>
+                </div>
+                <div class="AreaDiv" id = "SkillDiv">
+                    <p class = "AreaTitle">*技能要求</p>
+                    <input type="text" name = "skillsRequirement" class="form-control" autocomplete="off" readonly="readonly" style="background-color: white;"/>
+                    <div class="dropdown">
+                        <label for="dropdownMenu1" id = "DropDownMenuLabel">
+                            <button type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <svg t="1608602859291" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2947" width="200" height="200"><path d="M512 729.86624c-13.70112 0-27.40224-5.23264-37.84704-15.6672l-328.69376-328.704c-20.91008-20.91008-20.91008-54.80448 0-75.70432 20.89984-20.89984 54.79424-20.89984 75.70432 0L512 600.63744l290.83648-290.83648c20.91008-20.89984 54.80448-20.89984 75.70432 0 20.91008 20.89984 20.91008 54.79424 0 75.70432l-328.69376 328.704C539.40224 724.64384 525.70112 729.86624 512 729.86624z" p-id="2948" fill="#8a8a8a"></path></svg>
+                            </button>
+                        </label>
+                        <ul id = "SkillMenu" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display: none; width: 100%;">
+                            <ul class="GroupWrap">
+                                <li class="GroupTitle">开发语言</li>
+                                <li>
+                                    <ul class="SelectGroup">
+                                        <li><span>Java</span></li>
+                                        <li><span>PHP</span></li>
+                                        <li><span>Python</span></li>
+                                        <li><span>C++</span></li>
+                                        <li><span>C#</span></li>
+                                        <li><span>C</span></li>
+                                        <li><span>Go</span></li>
+                                        <li><span>Scala</span></li>
+                                        <li><span>其他语言</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul  class="GroupWrap">
+                                <li class="GroupTitle">技能与框架</li>
+                                <li>
+                                    <ul class="SelectGroup">
+                                        <li><span>angluarjs</span></li>
+                                        <li><span>Struts2</span></li>
+                                        <li><span>Hibernate</span></li>
+                                        <li><span>Spring</span></li>
+                                        <li><span>Spring Boot</span></li>
+                                        <li><span>Netty</span></li>
+                                        <li><span>Shiro</span></li>
+                                        <li><span>NutzBoot</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul  class="GroupWrap">
+                                <li class="GroupTitle">容器与中间件</li>
+                                <li>
+                                    <ul class="SelectGroup">
+                                        <li><span>Tomcat</span></li>
+                                        <li><span>Jboss</span></li>
+                                        <li><span>WebLogic</span></li>
+                                        <li><span>APM</span></li>
+                                        <li><span>Android</span></li>
+                                        <li><span>IOS</span></li>
+                                        <li><span>NutzWx</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <div class="el-select-dropdown__wrap el-scrollbar__wrap" style="margin-bottom: -6px; margin-right: -6px;">
+
+                    </div>
+                </div>
+                <div class="AreaDiv">
+                    <p class = "AreaTitle">*工期与预算</p>
+                    <div id = "BudgetPeriod">
+                        <div id = "Period">
+                            <script>
+                                 function checkNum (val) {
+                                    var r = /^\+?[1-9][0-9]*$/;　　//正整数
+                                    let flag = r.test(val);
+                                    let obj = document.getElementsByName('ProjectPeriod')[0];
+                                    if (!flag) {
+                                        obj.value = 0;
+                                    }
+                                }
+                            </script>
+                            <input type="number" onchange="checkNum(this.value)" name = "projectPeriod" autocomplete="off" placeholder="您期望多长时间完成，默认：可商议" minlength="1" maxlength="3" class="form-control" />
+                        </div>
+                        <div id = "PeriodLabelDiv">
+                            <label class = "PeriodLabel PeriodLabelSelected"><span>天</span></label>
+                            <label class = "PeriodLabel"></label>
+                        </div>
+                        <select name = "projectBudget" class="form-control input-large" id = "Budget">
+                            <option value="可议价">可议价</option>
+                            <option value="5000以下">5000以下</option>
+                            <option value="5000-10000">5000-10000</option>
+                            <option value="10000-50000">10000-50000</option>
+                            <option value="50000-100000">50000-100000</option>
+                            <option value="100000-500000">100000-500000</option>
+                            <option value="500000以上">500000以上</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="AreaDiv">
+                    <p class = "AreaTitle">*联系方式</p>
+                    <div style="display: flex;">
+                        <input type="text" name="connectName" autocomplete="off" placeholder="请输入姓名" maxlength="30" minlength="2" class="form-control" style="margin-right: 20px;">
+                        <input type="text" name="connectTel" autocomplete="off" placeholder="请输入手机/电话号码" maxlength="11" minlength="11" class="form-control" style="margin-left: 20px;">
+                    </div>
+                </div>
+                <div id = "SubmitButton">
+                    <button type="submit" class="btn btn-primary btn-block">立即发布</button>
+                    <p>点击保存或发布按钮，表示您已确认并同意<a href="#">《开源众包平台项目发布协议及规则》</a></p>
+                </div>
+            </form>
+        </div>
+        <div id = "advert">
+            <div class="AdvertDiv"><a href="#"><img th:src="@{/static/images/ad1.jpg}"></a></div>
+            <div class="AdvertDiv"><a href="#"><img th:src="@{/static/images/ad2.jpg}"></a></div>
+            <div class="AdvertDiv"><a href="#"><img th:src="@{/static/images/ad3.jpg}"></a></div>
+            <div class="AdvertDiv"><a href="#"><img th:src="@{/static/images/ad4.jpg}"></a></div>
+        </div>
+    </div>
+    <div th:replace="pages/front/component/footer::footer"></div>
+<script>
+    function add(){
+        $("#publishForm").submit();
+    }
+</script>
+</body>
+
+</html>

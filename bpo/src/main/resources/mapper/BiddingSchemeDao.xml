@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scu.bpo.dao.BiddingSchemeDao">
+  <resultMap id="BaseResultMap" type="com.scu.bpo.pojo.entity.BiddingScheme">
+    <id column="User_Employee_ID" jdbcType="INTEGER" property="userEmployeeId" />
+    <id column="Project_ID" jdbcType="INTEGER" property="projectId" />
+    <id column="User_Employer_ID" jdbcType="INTEGER" property="userEmployerId" />
+    <result column="Project_Period" jdbcType="VARCHAR" property="projectPeriod" />
+    <result column="Project_Amout" jdbcType="VARCHAR" property="projectAmout" />
+    <result column="Project_Superiority" jdbcType="VARCHAR" property="projectSuperiority" />
+    <result column="Bidding_Example" jdbcType="VARCHAR" property="biddingExample" />
+    <result column="User_Employee_Name" jdbcType="VARCHAR" property="userEmployeeName" />
+    <result column="User_Employee_Tel" jdbcType="VARCHAR" property="userEmployeeTel" />
+    <result column="Bidding_Status" jdbcType="VARCHAR" property="biddingStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    User_Employee_ID, Project_ID, User_Employer_ID, Project_Period, Project_Amout, Project_Superiority,
+    Bidding_Example, User_Employee_Name, User_Employee_Tel, Bidding_Status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.BiddingSchemeKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bidding_scheme
+    where User_Employee_ID = #{userEmployeeId,jdbcType=INTEGER}
+      and Project_ID = #{projectId,jdbcType=INTEGER}
+      and User_Employer_ID = #{userEmployerId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByProjectId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from bidding_scheme
+    where Project_ID = #{projectId,jdbcType=INTEGER}
+  </select>
+  <select id="selectSingleBidding" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from bidding_scheme
+    where Project_ID = #{projectId,jdbcType=INTEGER}
+    and User_Employee_ID = #{userEmployeeID,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.BiddingSchemeKey">
+    delete from bidding_scheme
+    where User_Employee_ID = #{userEmployeeId,jdbcType=INTEGER}
+      and Project_ID = #{projectId,jdbcType=INTEGER}
+      and User_Employer_ID = #{userEmployerId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="User_Employee_ID" keyProperty="userEmployeeId" parameterType="com.scu.bpo.pojo.entity.BiddingScheme" useGeneratedKeys="true">
+    insert into bidding_scheme (Project_ID, User_Employer_ID, Project_Period,
+      Project_Amout, Project_Superiority, Bidding_Example,
+      User_Employee_Name, User_Employee_Tel, Bidding_Status
+      )
+    values (#{projectId,jdbcType=INTEGER}, #{userEmployerId,jdbcType=INTEGER}, #{projectPeriod,jdbcType=VARCHAR},
+      #{projectAmout,jdbcType=VARCHAR}, #{projectSuperiority,jdbcType=VARCHAR}, #{biddingExample,jdbcType=VARCHAR},
+      #{userEmployeeName,jdbcType=VARCHAR}, #{userEmployeeTel,jdbcType=VARCHAR}, #{biddingStatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insert2" parameterType="com.scu.bpo.pojo.entity.BiddingScheme">
+    insert into bidding_scheme (User_Employee_ID,Project_ID, User_Employer_ID, Project_Period,
+                                Project_Amout, Project_Superiority, Bidding_Example,
+                                User_Employee_Name, User_Employee_Tel, Bidding_Status)
+    values (#{userEmployeeId,jdbcType=INTEGER},#{projectId,jdbcType=INTEGER}, #{userEmployerId,jdbcType=INTEGER}, #{projectPeriod,jdbcType=VARCHAR},
+            #{projectAmout,jdbcType=VARCHAR}, #{projectSuperiority,jdbcType=VARCHAR}, #{biddingExample,jdbcType=VARCHAR},
+            #{userEmployeeName,jdbcType=VARCHAR}, #{userEmployeeTel,jdbcType=VARCHAR}, #{biddingStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="User_Employee_ID" keyProperty="userEmployeeId" parameterType="com.scu.bpo.pojo.entity.BiddingScheme" useGeneratedKeys="true">
+    insert into bidding_scheme
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="projectId != null">
+        Project_ID,
+      </if>
+      <if test="userEmployerId != null">
+        User_Employer_ID,
+      </if>
+      <if test="projectPeriod != null">
+        Project_Period,
+      </if>
+      <if test="projectAmout != null">
+        Project_Amout,
+      </if>
+      <if test="projectSuperiority != null">
+        Project_Superiority,
+      </if>
+      <if test="biddingExample != null">
+        Bidding_Example,
+      </if>
+      <if test="userEmployeeName != null">
+        User_Employee_Name,
+      </if>
+      <if test="userEmployeeTel != null">
+        User_Employee_Tel,
+      </if>
+      <if test="biddingStatus != null">
+        Bidding_Status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="projectId != null">
+        #{projectId,jdbcType=INTEGER},
+      </if>
+      <if test="userEmployerId != null">
+        #{userEmployerId,jdbcType=INTEGER},
+      </if>
+      <if test="projectPeriod != null">
+        #{projectPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAmout != null">
+        #{projectAmout,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSuperiority != null">
+        #{projectSuperiority,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingExample != null">
+        #{biddingExample,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmployeeName != null">
+        #{userEmployeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmployeeTel != null">
+        #{userEmployeeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingStatus != null">
+        #{biddingStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scu.bpo.pojo.entity.BiddingScheme">
+    update bidding_scheme
+    <set>
+      <if test="projectPeriod != null">
+        Project_Period = #{projectPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="projectAmout != null">
+        Project_Amout = #{projectAmout,jdbcType=VARCHAR},
+      </if>
+      <if test="projectSuperiority != null">
+        Project_Superiority = #{projectSuperiority,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingExample != null">
+        Bidding_Example = #{biddingExample,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmployeeName != null">
+        User_Employee_Name = #{userEmployeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="userEmployeeTel != null">
+        User_Employee_Tel = #{userEmployeeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="biddingStatus != null">
+        Bidding_Status = #{biddingStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where User_Employee_ID = #{userEmployeeId,jdbcType=INTEGER}
+      and Project_ID = #{projectId,jdbcType=INTEGER}
+      and User_Employer_ID = #{userEmployerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.BiddingScheme">
+    update bidding_scheme
+    set Project_Period = #{projectPeriod,jdbcType=VARCHAR},
+      Project_Amout = #{projectAmout,jdbcType=VARCHAR},
+      Project_Superiority = #{projectSuperiority,jdbcType=VARCHAR},
+      Bidding_Example = #{biddingExample,jdbcType=VARCHAR},
+      User_Employee_Name = #{userEmployeeName,jdbcType=VARCHAR},
+      User_Employee_Tel = #{userEmployeeTel,jdbcType=VARCHAR},
+      Bidding_Status = #{biddingStatus,jdbcType=VARCHAR}
+    where User_Employee_ID = #{userEmployeeId,jdbcType=INTEGER}
+      and Project_ID = #{projectId,jdbcType=INTEGER}
+      and User_Employer_ID = #{userEmployerId,jdbcType=INTEGER}
+  </update>
+</mapper>

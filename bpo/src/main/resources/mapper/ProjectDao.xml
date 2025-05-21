@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scu.bpo.dao.ProjectDao">
+  <resultMap id="BaseResultMap" type="com.scu.bpo.pojo.entity.Project">
+    <id column="Project_ID" jdbcType="INTEGER" property="projectId" />
+    <result column="User_Employer_ID" jdbcType="INTEGER" property="userEmployerId" />
+    <result column="Equipment_ID" jdbcType="VARCHAR" property="equipmentId" />
+    <result column="Project_Type_ID" jdbcType="INTEGER" property="projectTypeId" />
+    <result column="Project_Admin_ID" jdbcType="INTEGER" property="projectAdminId" />
+    <result column="Project_Name" jdbcType="VARCHAR" property="projectName" />
+    <result column="Skills_Requirement" jdbcType="VARCHAR" property="skillsRequirement" />
+    <result column="Project_Requirement" jdbcType="VARCHAR" property="projectRequirement" />
+    <result column="Project_Period" jdbcType="VARCHAR" property="projectPeriod" />
+    <result column="Project_Budget" jdbcType="VARCHAR" property="projectBudget" />
+    <result column="Project_Status" jdbcType="VARCHAR" property="projectStatus" />
+    <result column="Connect_Tel" jdbcType="VARCHAR" property="connectTel" />
+    <result column="Connect_Name" jdbcType="VARCHAR" property="connectName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Project_ID, User_Employer_ID, Equipment_ID, Project_Type_ID, Project_Admin_ID, Project_Name,
+    Skills_Requirement, Project_Requirement, Project_Period, Project_Budget, Project_Status,
+    Connect_Tel, Connect_Name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from project
+    where Project_ID = #{projectId,jdbcType=INTEGER}
+  </select>
+  <select id="selectPassed" resultMap="BaseResultMap">
+    select
+    Project_ID, User_Employer_ID, Equipment_ID, Project_Type_ID, Project_Admin_ID, Project_Name,
+    Skills_Requirement, Project_Requirement, Project_Period, Project_Budget, Project_Status,
+    Connect_Tel, Connect_Name
+    from project
+    where Project_Status =  '已通过'
+  </select>
+  <select id="selectUnexamined" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from project
+    where Project_Status =  "未审核"
+  </select>
+  <select id="selectByUserEmployerId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from project
+    where User_Employer_ID = #{userEmployerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from project
+    where Project_ID = #{projectId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="Project_ID" keyProperty="projectId" parameterType="com.scu.bpo.pojo.entity.Project" useGeneratedKeys="true">
+    insert into project (User_Employer_ID, Equipment_ID, Project_Type_ID,
+      Project_Admin_ID, Project_Name, Skills_Requirement,
+      Project_Requirement, Project_Period, Project_Budget,
+      Project_Status, Connect_Tel, Connect_Name
+      )
+    values (#{userEmployerId,jdbcType=INTEGER}, #{equipmentId,jdbcType=VARCHAR}, #{projectTypeId,jdbcType=INTEGER},
+      #{projectAdminId,jdbcType=INTEGER}, #{projectName,jdbcType=VARCHAR}, #{skillsRequirement,jdbcType=VARCHAR},
+      #{projectRequirement,jdbcType=VARCHAR}, #{projectPeriod,jdbcType=VARCHAR}, #{projectBudget,jdbcType=VARCHAR},
+      #{projectStatus,jdbcType=VARCHAR}, #{connectTel,jdbcType=VARCHAR}, #{connectName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="Project_ID" keyProperty="projectId" parameterType="com.scu.bpo.pojo.entity.Project" useGeneratedKeys="true">
+    insert into project
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userEmployerId != null">
+        User_Employer_ID,
+      </if>
+      <if test="equipmentId != null">
+        Equipment_ID,
+      </if>
+      <if test="projectTypeId != null">
+        Project_Type_ID,
+      </if>
+      <if test="projectAdminId != null">
+        Project_Admin_ID,
+      </if>
+      <if test="projectName != null">
+        Project_Name,
+      </if>
+      <if test="skillsRequirement != null">
+        Skills_Requirement,
+      </if>
+      <if test="projectRequirement != null">
+        Project_Requirement,
+      </if>
+      <if test="projectPeriod != null">
+        Project_Period,
+      </if>
+      <if test="projectBudget != null">
+        Project_Budget,
+      </if>
+      <if test="projectStatus != null">
+        Project_Status,
+      </if>
+      <if test="connectTel != null">
+        Connect_Tel,
+      </if>
+      <if test="connectName != null">
+        Connect_Name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userEmployerId != null">
+        #{userEmployerId,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentId != null">
+        #{equipmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTypeId != null">
+        #{projectTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="projectAdminId != null">
+        #{projectAdminId,jdbcType=INTEGER},
+      </if>
+      <if test="projectName != null">
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="skillsRequirement != null">
+        #{skillsRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRequirement != null">
+        #{projectRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPeriod != null">
+        #{projectPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="projectBudget != null">
+        #{projectBudget,jdbcType=VARCHAR},
+      </if>
+      <if test="projectStatus != null">
+        #{projectStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="connectTel != null">
+        #{connectTel,jdbcType=VARCHAR},
+      </if>
+      <if test="connectName != null">
+        #{connectName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.scu.bpo.pojo.entity.Project">
+    update project
+    <set>
+      <if test="userEmployerId != null">
+        User_Employer_ID = #{userEmployerId,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentId != null">
+        Equipment_ID = #{equipmentId,jdbcType=VARCHAR},
+      </if>
+      <if test="projectTypeId != null">
+        Project_Type_ID = #{projectTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="projectAdminId != null">
+        Project_Admin_ID = #{projectAdminId,jdbcType=INTEGER},
+      </if>
+      <if test="projectName != null">
+        Project_Name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="skillsRequirement != null">
+        Skills_Requirement = #{skillsRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="projectRequirement != null">
+        Project_Requirement = #{projectRequirement,jdbcType=VARCHAR},
+      </if>
+      <if test="projectPeriod != null">
+        Project_Period = #{projectPeriod,jdbcType=VARCHAR},
+      </if>
+      <if test="projectBudget != null">
+        Project_Budget = #{projectBudget,jdbcType=VARCHAR},
+      </if>
+      <if test="projectStatus != null">
+        Project_Status = #{projectStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="connectTel != null">
+        Connect_Tel = #{connectTel,jdbcType=VARCHAR},
+      </if>
+      <if test="connectName != null">
+        Connect_Name = #{connectName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Project_ID = #{projectId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.scu.bpo.pojo.entity.Project">
+    update project
+    set User_Employer_ID = #{userEmployerId,jdbcType=INTEGER},
+      Equipment_ID = #{equipmentId,jdbcType=VARCHAR},
+      Project_Type_ID = #{projectTypeId,jdbcType=INTEGER},
+      Project_Admin_ID = #{projectAdminId,jdbcType=INTEGER},
+      Project_Name = #{projectName,jdbcType=VARCHAR},
+      Skills_Requirement = #{skillsRequirement,jdbcType=VARCHAR},
+      Project_Requirement = #{projectRequirement,jdbcType=VARCHAR},
+      Project_Period = #{projectPeriod,jdbcType=VARCHAR},
+      Project_Budget = #{projectBudget,jdbcType=VARCHAR},
+      Project_Status = #{projectStatus,jdbcType=VARCHAR},
+      Connect_Tel = #{connectTel,jdbcType=VARCHAR},
+      Connect_Name = #{connectName,jdbcType=VARCHAR}
+    where Project_ID = #{projectId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByProjectIdAndAdmin">
+    update project
+    set Project_Admin_ID = #{param2,jdbcType=INTEGER},
+        Project_Status = #{param3,jdbcType=VARCHAR}
+    where Project_ID = #{param1,jdbcType=INTEGER}
+  </update>
+</mapper>

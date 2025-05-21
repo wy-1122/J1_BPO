@@ -1,0 +1,319 @@
+@import "nav";
+@import "footer";
+
+body
+{
+    text-align:center;		/* 文字居中 */
+}
+ul
+{
+    list-style-type:none; /* ul前面的点  */
+}
+*
+{
+    margin:0px 0px;     /* 到边框的距离 */
+}
+.menu-bpo
+{
+    height: 56px;
+    background:#404040; /* 导航条背景的颜色  */
+}
+.nav-bpo
+{
+    margin:0 auto; 	/* 导航栏文字的位置  */
+    width:1100px; 	/* 和文字宽度有关，不能小于文字宽度的总和  */
+    height:56px; 	/* 导航栏的宽度  */
+}
+.nav-bpo a
+{
+    float:left;				 /* 导航栏的位置配置 */
+    width:180px;			 /* 选中的文字块的长度  */
+    line-height:56px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:25px;			 /* 字体大小 */
+    color: #FFFFFF;			 /* 字体颜色 */
+}
+
+.nav-bpo li a:hover
+{
+    background-color: #D8D8D8;	        /* 选中的文字块的颜色 */
+    text-decoration:none;		/* 选中时去掉连接下划线 */
+}
+.nav-bpo li a:link{
+    text-decoration:none; /* 连接被点之后没有下划线  */
+}
+.list-main{
+
+    margin: 20px auto;
+    width: 1100px;
+    border-radius: 30%;
+}
+.main-middle{
+    width:1100px;
+    margin: 0 auto;
+    /*height: 100px;*/
+    background: rgba(255, 255, 255, 0.75);
+}
+.searchAndAddNew{
+    padding-top:10px;
+    width: 1100px;
+    height: 100px;
+    /*position: absolute;*/
+
+}
+.search{
+    width: 500px;
+    float: right;
+}
+.addNew{
+    width: 500px;
+    float: right;
+}
+/*背景图片*/
+.ImageDiv{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BackgroundImage{
+    display: block;
+    width: 110%;
+    min-height: 140%;
+    object-fit: cover;
+    /*transform: translate(var(--offsetX),var(--offsetY));*/
+    transform: translateY(var(--offsetY));
+}
+
+/*筛选框*/
+.filterByTypeAndMoney{
+    width: 1100px;
+    height: 200px;
+}
+
+.app-type{
+    text-align: center;
+    width: 1100px;
+    height: 125px;
+}
+.app-type a{
+    border-radius: 10px;
+    float:left;				 /* 导航栏的位置配置 */
+    width:110px;			 /* 选中的文字块的长度  */
+    line-height:56px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:15px;			 /* 字体大小 */
+    color: #000000;			 /* 字体颜色 */
+}
+.ItemSelected{
+    background: rgba(220,139,20,0.5);
+}
+.app-type a:hover{
+    background: rgba(220,139,20,0.5);
+}
+.app-type a:active{
+    background: rgba(220,139,20,1);
+}
+.app-type option{
+    border-radius: 10px;
+    float:left;				 /* 导航栏的位置配置 */
+    width:110px;			 /* 选中的文字块的长度  */
+    line-height:56px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:15px;			 /* 字体大小 */
+    color: #000000;			 /* 字体颜色 */
+}
+.app-money{
+
+    width: 1100px;
+    height: 75px;
+    text-align: center;
+}
+.app-money a{
+    border-radius: 10px;
+    float:left;				 /* 导航栏的位置配置 */
+    width:110px;			 /* 选中的文字块的长度  */
+    line-height:56px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:15px;			 /* 字体大小 */
+    color: #000000;			 /* 字体颜色 */
+}
+.app-money a:hover{
+    background: rgba(220,139,20,0.5);
+}
+.app-money a:active{
+    background: rgba(220,139,20,1);
+}
+.item-left{
+    width: 10%;
+    float: left;
+}
+.item-right{
+    width: 90%;
+    float: right;
+}
+.contain-for-project{
+    width: 1090px;
+    height: auto;
+
+}
+
+.project-list{
+    width: 1100px;
+    height: 900px;
+}
+.project{
+    /*padding-top: 10px;*/
+    /*padding-bottom: 1px;*/
+    text-align: center;
+    width: 1090px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 120px;
+
+    border-radius: 8px;
+    background: rgba(220,139,20,0.3);
+}
+.projectNameAndMoney{
+    width: 1100px;
+    height: 40px;
+}
+.project-name{
+    width: 50%;
+    float: left;
+}
+.project-money{
+    width: 50%;
+    float: right;
+}
+.project-name a{
+    margin-left: 40px;
+    border-radius: 10px;
+    float:left;				 /* 导航栏的位置配置 */
+    width:110px;			 /* 选中的文字块的长度  */
+    line-height:56px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:20px;			 /* 字体大小 */
+    color: #000000;			 /* 字体颜色 */
+}
+.project-money a{
+    margin-right: 50px;
+    border-radius: 10px;
+    float: right;				 /* 导航栏的位置配置 */
+    width:110px;			 /* 选中的文字块的长度  */
+    line-height:56px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:20px;			 /* 字体大小 */
+    color: #000000;			 /* 字体颜色 */
+}
+.project-detail{
+    margin-left: 10px;
+    width: 1100px;
+    height: 50px;
+}
+.project-detail a{
+    margin-left: 4px;
+    margin-top: 2px;
+    border-radius: 3px;
+    float:left;				 /* 导航栏的位置配置 */
+    width:80px;			 /* 选中的文字块的长度  */
+    line-height:24px; 		         /* 选中的文字块的宽度  */
+    text-decoration: none;               /* 去掉连接下划线  */
+    font-size:10px;			 /* 字体大小 */
+    color: #000000;			 /* 字体颜色 */
+    background: rgba(220,139,20,1);
+}
+.skill-requirement{
+    width: 1090px;
+    height: 30px;
+}
+/*.skill-requirement a{*/
+/*    text-decoration:  none;*/
+/*    font-size: 16px;*/
+/*    color: #5e5e5e;*/
+/*    text-align: left;*/
+/*    float: left;*/
+/*    padding-left: 55px;*/
+
+/*}*/
+.skill{
+    width: 50%;
+    float: left;;
+}
+.skill a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #5e5e5e;
+    text-align: left;
+    float: left;
+    padding-left: 55px;
+}
+.project-time{
+    width: 50%;
+    float: right;
+}
+.project-time span{
+    font-size: 16px;
+    color: #5e5e5e;
+    text-align: right;
+    float: right;
+    padding-right: 50px;
+}
+
+
+
+
+#MainDiv{
+    min-height: 100vh;
+}
+#logo{
+    font-size: 22pt;
+    filter: shadow(color=lime#b0c4de);
+    color: rgb(236,6,6);
+    line-height: 150%;
+    font-family: 华文行楷;
+    padding-top: 10px;
+}
+#Background{
+    position: absolute;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    --offsetX: 0px;
+    --offsetY: 0px;
+}
+#search-text{
+    margin: 0px;
+    width: 400px;
+    height: 35px;
+    background-color: transparent;
+    color: #dc8b14;
+    border: 1px solid #dc8b14;
+
+}
+#search-button{
+    margin-top: 5px;
+    background-color: #dc8b14;
+    color: whitesmoke;
+    width: 80px;
+    height: 38px;
+    border: none;
+}
+#addNew{
+    margin-right: 70px;
+    margin-top: 6px;
+    background-color: #dc8b14;
+    color: whitesmoke;
+    width: 430px;
+    height: 40px;
+    border: none;
+}
+
+
