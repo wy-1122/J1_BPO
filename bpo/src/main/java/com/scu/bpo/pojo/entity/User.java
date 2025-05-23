@@ -13,10 +13,9 @@ public class User implements Serializable {
 
     private String password;
 
-    private Float money;
+    private Float money = 0f;
 
     private static final long serialVersionUID = 1L;
-
     public Integer getUserId() {
         return userId;
     }

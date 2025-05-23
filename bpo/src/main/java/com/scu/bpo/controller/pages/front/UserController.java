@@ -88,9 +88,9 @@ public class UserController {
 //            System.out.println(addEmployee);
             //传递信息
             model.addAttribute("successMsg",regResult);
-            session.setAttribute("User",user.getUserName());
+            session.setAttribute("user",user.getUserName());
             session.setAttribute("userRoleId",1);
-            return "redirect:/listPage";
+            return "redirect:/";
         }
         else {
             model.addAttribute("errMessage",regResult);
