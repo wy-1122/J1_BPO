@@ -33,6 +33,14 @@ public class CashFlowService {
         flow.setOrderTypeId(TypeToNum(moneyType));
 
         CashFlow record = cashFlowDao.SelectTopRecord();
+        if (record == null) {
+            record = new CashFlow();
+            // 设置初始值
+            record.setClosingBalanceIncome(0f);
+            record.setClosingBalanceOutcome(0f);
+            record.setAccumulatedAmountIncome(0f);
+            record.setAccumulatedAmountOutcome(0f);
+        }
         Float amount = notification.getAmount();
         float openBalanceIncome = record.getClosingBalanceIncome(),
                 openBalanceOutcome = record.getClosingBalanceOutcome(),
