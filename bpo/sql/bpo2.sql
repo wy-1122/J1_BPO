@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 127.0.0.1
+ Source Server         : 39.106.248.162_3306
  Source Server Type    : MySQL
- Source Server Version : 80020
- Source Host           : 127.0.0.1:3306
- Source Schema         : bpo
+ Source Server Version : 80024
+ Source Host           : 39.106.248.162:3306
+ Source Schema         : bpo2
 
  Target Server Type    : MySQL
- Target Server Version : 80020
+ Target Server Version : 80024
  File Encoding         : 65001
 
- Date: 23/05/2025 10:37:21
+ Date: 24/05/2025 09:11:17
 */
 
 SET NAMES utf8mb4;
@@ -60,6 +60,7 @@ CREATE TABLE `bidding_scheme`  (
 INSERT INTO `bidding_scheme` VALUES (2, 1, 1, '4', '4444', '44', '44', '444', '44444444444', '竞标中');
 INSERT INTO `bidding_scheme` VALUES (7, 1, 1, '11', '11', '11', '1', '12323', '12222221111', '已选中');
 INSERT INTO `bidding_scheme` VALUES (17, 2, 1, '22', '2222', '22222', '22222', '2222', '22222222222', '已选中');
+INSERT INTO `bidding_scheme` VALUES (21, 6, 18, '14', '14', '陈艺宁', '陈艺宁', '陈艺宁', 'ccccccccccc', '已选中');
 
 -- ----------------------------
 -- Table structure for bill
@@ -80,6 +81,10 @@ CREATE TABLE `bill`  (
 -- ----------------------------
 -- Records of bill
 -- ----------------------------
+INSERT INTO `bill` VALUES (4, 9, 2.8, '支付定金', '2025-05-23 23:20:09', '服务外包发布方定金');
+INSERT INTO `bill` VALUES (5, 10, 1.4, '支付定金', '2025-05-23 23:20:50', '服务外包承包方定金');
+INSERT INTO `bill` VALUES (6, 9, 11.2, '支付尾款', '2025-05-23 23:22:22', '服务外包支付尾款');
+INSERT INTO `bill` VALUES (7, 10, 15.4, '全额转付', '2025-05-23 23:22:54', '服务外包全额转付');
 
 -- ----------------------------
 -- Table structure for case_project
@@ -129,6 +134,10 @@ CREATE TABLE `cash_flow`  (
 -- ----------------------------
 -- Records of cash_flow
 -- ----------------------------
+INSERT INTO `cash_flow` VALUES (2, 4, NULL, 1, 0, 0, 2.8, 0, 2.8, 0, 2.8, 0);
+INSERT INTO `cash_flow` VALUES (3, 5, NULL, 1, 2.8, 0, 1.4, 0, 4.2, 0, 4.2, 0);
+INSERT INTO `cash_flow` VALUES (4, 6, NULL, 2, 4.2, 0, 11.2, 0, 15.4, 0, 15.4, 0);
+INSERT INTO `cash_flow` VALUES (5, 7, NULL, 6, 15.4, 0, 0, 15.4, 15.4, 15.4, 0, 0);
 
 -- ----------------------------
 -- Table structure for client_support
@@ -193,6 +202,8 @@ CREATE TABLE `evaluation`  (
 -- ----------------------------
 -- Records of evaluation
 -- ----------------------------
+INSERT INTO `evaluation` VALUES (1, 21, 3, '2025-05-24 08:25:47', '谢谢你cyn');
+INSERT INTO `evaluation` VALUES (2, 18, 3, '2025-05-24 08:52:34', '谢谢你，王雅');
 
 -- ----------------------------
 -- Table structure for message
@@ -256,6 +267,10 @@ CREATE TABLE `money_notification`  (
 -- ----------------------------
 -- Records of money_notification
 -- ----------------------------
+INSERT INTO `money_notification` VALUES (4, 3, 9, NULL, '2025-05-23 23:20:09', 2.8, '支付定金', '服务外包发布方定金');
+INSERT INTO `money_notification` VALUES (5, 3, 10, NULL, '2025-05-23 23:20:50', 1.4, '支付定金', '服务外包承包方定金');
+INSERT INTO `money_notification` VALUES (6, 3, 9, NULL, '2025-05-23 23:22:22', 11.2, '支付尾款', '服务外包支付尾款');
+INSERT INTO `money_notification` VALUES (7, 3, 10, NULL, '2025-05-23 23:22:54', 15.4, '全额转付', '服务外包全额转付');
 
 -- ----------------------------
 -- Table structure for order_admin
@@ -295,13 +310,14 @@ CREATE TABLE `orders`  (
   CONSTRAINT `FK_ORDERS_REFERENCE_USER_EMP2` FOREIGN KEY (`User_employee_ID`) REFERENCES `user_employee` (`User_employee_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_Reference_16` FOREIGN KEY (`Project_ID`) REFERENCES `project` (`Project_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_Reference_23` FOREIGN KEY (`User_Employer_ID`) REFERENCES `user_employer` (`User_Employer_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
 INSERT INTO `orders` VALUES (1, 1, 7, 1, '2025-05-22 23:19:02', '未付定金', 11, 11, 2.2, 1.1);
 INSERT INTO `orders` VALUES (2, 2, 17, 1, '2025-05-23 10:22:37', '未付定金', 2222, 22, 444.4, 222.2);
+INSERT INTO `orders` VALUES (3, 6, 21, 18, '2025-05-23 22:35:15', '评价完成', 14, 14, 2.8, 1.4);
 
 -- ----------------------------
 -- Table structure for orders_state
@@ -360,14 +376,17 @@ CREATE TABLE `project`  (
   CONSTRAINT `FK_Reference_27` FOREIGN KEY (`Equipment_ID`) REFERENCES `client_support` (`Equipment_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_Reference_28` FOREIGN KEY (`Project_Type_ID`) REFERENCES `project_type` (`Project_Type_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_Reference_29` FOREIGN KEY (`Project_Admin_ID`) REFERENCES `admin_for_project` (`User_Project_Admin_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of project
 -- ----------------------------
 INSERT INTO `project` VALUES (1, 1, 1, 3, 3, '服务中标', 'Hibernate,Python,C++,Java', '服务中保', '30', '10000-50000', '已出单', '18967777777', 'hhh');
 INSERT INTO `project` VALUES (2, 1, 2, 2, 3, 'nnn', 'PHP,C++,Netty', 'nnn', '122', '5000以下', '已出单', '12312312321', '123');
-INSERT INTO `project` VALUES (3, 1, 5, 11, NULL, '11233', 'PHP,Java', '132312', '33', '10000-50000', '未审核', '13312321321', '33333');
+INSERT INTO `project` VALUES (3, 1, 5, 11, 3, '11233', 'PHP,Java', '132312', '33', '10000-50000', '已通过', '13312321321', '33333');
+INSERT INTO `project` VALUES (4, 18, 2, 7, 3, '服务外包', 'Java', '服务外包', '123', '5000-10000', '已通过', '11011011011', '王雅');
+INSERT INTO `project` VALUES (5, 18, 1, 1, 3, '服务外包2', 'Java', '服务外包2', '123', '5000以下', '已通过', '22222222222', '王雅');
+INSERT INTO `project` VALUES (6, 18, 1, 1, 3, '服务外包', 'Java', '服务外包', '123', '可议价', '已完成', '11111111111', '王雅');
 
 -- ----------------------------
 -- Table structure for project_type
@@ -445,6 +464,13 @@ CREATE TABLE `transaction_type`  (
 -- ----------------------------
 -- Records of transaction_type
 -- ----------------------------
+INSERT INTO `transaction_type` VALUES (1, '支付定金');
+INSERT INTO `transaction_type` VALUES (2, '支付尾款');
+INSERT INTO `transaction_type` VALUES (3, '违约扣款');
+INSERT INTO `transaction_type` VALUES (4, '违约赔偿');
+INSERT INTO `transaction_type` VALUES (5, '定金退还');
+INSERT INTO `transaction_type` VALUES (6, '全额转付');
+INSERT INTO `transaction_type` VALUES (7, NULL);
 
 -- ----------------------------
 -- Table structure for user
@@ -457,7 +483,7 @@ CREATE TABLE `user`  (
   `Money` float NULL DEFAULT 0,
   PRIMARY KEY (`User_ID`) USING BTREE,
   UNIQUE INDEX `AK_UQ_USER_NAME`(`User_Name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -470,6 +496,8 @@ INSERT INTO `user` VALUES (5, 'aaa', 'aaa', 0);
 INSERT INTO `user` VALUES (6, 'ba', 'ba', 0);
 INSERT INTO `user` VALUES (7, 'asdf', 'ad', 0);
 INSERT INTO `user` VALUES (8, 'gg', 'gg', 0);
+INSERT INTO `user` VALUES (9, 'wy', 'wy', -14);
+INSERT INTO `user` VALUES (10, 'cyn', 'cyn', 14);
 
 -- ----------------------------
 -- Table structure for user_employee
@@ -496,6 +524,8 @@ INSERT INTO `user_employee` VALUES (11, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user_employee` VALUES (13, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user_employee` VALUES (15, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `user_employee` VALUES (17, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user_employee` VALUES (19, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user_employee` VALUES (21, NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user_employer
@@ -521,6 +551,8 @@ INSERT INTO `user_employer` VALUES (10, 'aaa', NULL, NULL, NULL);
 INSERT INTO `user_employer` VALUES (12, 'ba', NULL, NULL, NULL);
 INSERT INTO `user_employer` VALUES (14, 'asdf', NULL, NULL, NULL);
 INSERT INTO `user_employer` VALUES (16, 'gg', NULL, NULL, NULL);
+INSERT INTO `user_employer` VALUES (18, 'wy', NULL, NULL, NULL);
+INSERT INTO `user_employer` VALUES (20, 'cyn', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for user_role
@@ -536,7 +568,7 @@ CREATE TABLE `user_role`  (
   INDEX `FK_Reference_2`(`Role_ID`) USING BTREE,
   CONSTRAINT `FK_Reference_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK_Reference_2` FOREIGN KEY (`Role_ID`) REFERENCES `role` (`Role_ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_role
@@ -558,6 +590,10 @@ INSERT INTO `user_role` VALUES (7, 1, 14, NULL);
 INSERT INTO `user_role` VALUES (7, 2, 15, NULL);
 INSERT INTO `user_role` VALUES (8, 1, 16, NULL);
 INSERT INTO `user_role` VALUES (8, 2, 17, NULL);
+INSERT INTO `user_role` VALUES (9, 1, 18, NULL);
+INSERT INTO `user_role` VALUES (9, 2, 19, NULL);
+INSERT INTO `user_role` VALUES (10, 1, 20, NULL);
+INSERT INTO `user_role` VALUES (10, 2, 21, NULL);
 
 -- ----------------------------
 -- View structure for cashflowdetail
