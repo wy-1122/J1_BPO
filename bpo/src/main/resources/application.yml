@@ -19,7 +19,7 @@ spring:
       suffix: .html
 
   datasource:
-    url: jdbc:mysql://39.106.248.162:3306/bpo2?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/bpo2?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: bpo
     password: StrongP@ss!
     driver-class-name: com.mysql.cj.jdbc.Driver
